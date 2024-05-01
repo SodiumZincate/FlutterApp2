@@ -12,17 +12,37 @@ class MainApp extends StatefulWidget {
 }
 
 class _MainApp extends State<MainApp> {
+  var activeScreen = 'page_one';
 
-  Widget activeScreen = const PageOneContents();
+  // Widget? activeScreen;
 
-  swichScreen(){
-    setState((){
-      activeScreen = const PageOneContents();
+  // @override
+  // initState(){
+  //   activeScreen = PageOneContents(switchScreen);
+  //   super.initState();
+  // }
+
+  // switchScreen(){
+  //   setState((){
+  //     activeScreen = const PageTwoContents();
+  //   });
+  // }
+
+  switchScreen() {
+    setState(() {
+      activeScreen = 'page_two';
     });
   }
 
   @override
   Widget build(context) {
+
+    Widget screenWidget = PageOneContents(switchScreen);
+
+    if(activeScreen == 'page_two'){
+      screenWidget = const PageTwoContents();
+    }
+
     return MaterialApp(
       home: Scaffold(
         body: Container(
@@ -37,7 +57,7 @@ class _MainApp extends State<MainApp> {
               end: Alignment.bottomRight,
             ),
           ),
-          child: activeScreen,
+          child: screenWidget,
         ),
       ),
     );

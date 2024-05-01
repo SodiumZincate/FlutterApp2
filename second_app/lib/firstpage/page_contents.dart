@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class PageOneContents extends StatelessWidget {
-  const PageOneContents({super.key});
+  const PageOneContents(this.switchScreen, {super.key});
+
+  final void Function() switchScreen;
 
   @override
   Widget build(context) {
@@ -46,9 +48,7 @@ class PageOneContents extends StatelessWidget {
                 padding: const EdgeInsets.only(
                     top: 10, bottom: 10, left: 20, right: 20),
               ),
-              onPressed: () {
-                
-              },
+              onPressed: switchScreen,
               icon: const Icon(Icons.arrow_right_alt),
               label: const Text('Start Quiz', style: TextStyle(fontSize: 18)),
             ),
