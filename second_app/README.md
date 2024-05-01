@@ -1,5 +1,7 @@
 # second_app
 
+`This is my second flutter application following a course that will cover more advanced stuffs`
+
 A new Flutter project.
 
 ## Getting Started
